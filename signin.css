@@ -1,0 +1,176 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(135deg, blue, gold);
+  height: 100vh;
+   display: flex;
+  overflow-y: hidden; 
+  justify-content: center;
+  align-items: center;  
+}
+
+input {
+    width: 70%;
+    height: 45px;
+    border: none;
+    border: 2px solid blue;
+    font-weight: 600;
+    border-radius: 20px;
+    padding-left:20px;
+}
+
+.bg{
+    background-color:rgb(255, 255, 255);
+    height: 520px;
+    padding-top: 150px;
+    font-size: 20px;
+    color: blue;
+    border-radius: 20px 0 0 20px;
+}
+
+.bg2{
+    background-color: rgba(0, 0, 0, 0.39);
+    height: 520px;
+    border-radius:0 20px 20px 0;
+    /* padding-top: 30px; */
+}
+
+.bxi{
+  position: absolute;
+  right: 620px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+#b{
+  border:  2px solid blue;
+  width: 50px;
+  height: 50px;
+  border-radius: 12%;
+  padding-top: 10px;
+  color: white;
+}
+
+::placeholder{
+  font-size: 15px;
+}
+
+.word1{
+  font-size: 16px;
+}
+
+@media (max-width: 992px) {
+   .bg{height: 160px;
+      border-radius:  20px 20px 0 0;
+      padding-top: 20px;
+      margin-bottom:-240px;
+  } 
+  
+  .bg2 {
+    height: 480px;
+    padding-top: 40px;
+    font-size: 18px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 20px;
+  }
+  input {
+    width: 60%;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .bg{height: 170px;
+      border-radius:  20px 20px 0 0;
+      margin-bottom: -170px;
+  }
+  
+  .bg2 {
+    height: 560px;
+    padding-top: 20px;
+    font-size: 16px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 0px;
+  }
+  input {
+    width: 100%;
+    font-size: 15px;
+  }
+  .bxi {
+    right: 20px;
+    font-size: 18px;
+  }
+    .input-icon-container .bxi {
+    right: 10px;
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 370px) {
+  .bg {
+    font-size: 8px;
+    padding-top: 10px;
+    height: 160px;
+    margin-bottom: -190px;
+  }
+  .word1{
+    font-size: 15px;
+  }
+  
+  .bg2 {
+    font-size: 10px;
+    padding-top: 10px;
+    height: 500px;
+    margin-bottom: 50px;
+  }
+  input {
+    font-size: 15px;
+  }
+    .input-icon-container .bxi {
+    right: 6px;
+    font-size: 16px;
+  }
+
+}
+
+.input-icon-container {
+  position: relative;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; 
+}
+
+.input-icon-container input {
+  width: 100%;
+  padding-right: 40px; 
+  box-sizing: border-box;
+}
+
+
+.input-icon-container .bxi {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #007bff;
+  pointer-events: none;
+}
+
+.bxi {
+  position: static;
+  right: auto;
+  padding-top: 0;
+  font-size: inherit;
+}
+
+
+
