@@ -7,7 +7,7 @@
 body{
   background: linear-gradient(135deg, blue, gold);
   height: 100vh;
-   display: flex;
+  display: flex;
   overflow-y: hidden; 
   justify-content: center;
   align-items: center;  
@@ -30,12 +30,15 @@ input {
     font-size: 20px;
     color: blue;
     border-radius: 20px 0 0 20px;
+    width: 400px;
 }
 
 .bg2{
     background-color: rgba(0, 0, 0, 0.39);
     height: 600px;
     border-radius:0 20px 20px 0;
+    width: 400px;
+
     /* padding-top: 30px; */
 }
 
@@ -63,7 +66,7 @@ input {
   font-size: 16px;
 }
 
-@media (max-width: 992px) {
+ @media (max-width: 992px) {
    .bg{height: 150px;
       border-radius:  20px 20px 0 0;
       padding-top: 20px;
@@ -141,7 +144,7 @@ input {
     font-size: 16px;
   }
 
-}
+} 
 
 .input-icon-container {
   position: relative;

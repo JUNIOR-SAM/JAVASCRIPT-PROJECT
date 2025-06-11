@@ -1,11 +1,26 @@
-// const takeNote = () =>{
-//     not.style.top = "180px"
-//     note.style.height ="140px"
-// }
+const toast = (message, bgColor, color = "white", fontWeight = "bold", marginTop = "50px", borderRadius = "50px", width,fontSize,textAlign) => {
+    Toastify({
+        text: message,
+        duration: 2000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+            background: bgColor,
+            color: color,
+            fontWeight: fontWeight,
+            marginTop,
+            borderRadius,
+            width,
+            fontSize,
+            textAlign,
+        },
+        onClick: function () { },
+    }).showToast();
+};
 
-
-
-// const allNote = []
 
 let obj = {}
 const addNote = () => {
@@ -14,21 +29,27 @@ const addNote = () => {
     const input = document.getElementById("image")
     const file = input.files[0]
     console.log(file);
-
-    if (!/^[A-Z]/.test(note)) {
-        alert("Title must contain only capital letters (A-Z) with no spaces.");
+    if (note === "" || notes === "") {
+        // alert("fill all input")
+        toast('Please fill all the fields', 'red', 'white', 'bold', '50px', '50px')
         return;
     }
-
-    else if (note === "") {
-        alert("Please Add  Title");
+    else if (!/^[A-Z]/.test(note)) {
+        toast("Title must contain only capital letters (A-Z) with no spaces.",'red','white', 'bold', '50px', '50px','80%','13px','center');
         return;
     }
-    else if (notes === "") {
-        alert("Please add a Note");
-        return;
+    // else if (note === "") {
+    //     alert("Please Add  Title");
+    //     return;
+    // }
+    // else if (notes === "") {
+    //     alert("Please add a Note");
+    //     return;
 
-    }
+    // }
+    // else if(file === ""){
+    //     alert("add your image")
+    // }
     else if (file == undefined) {
         imageShow = ""
         obj = {
@@ -45,7 +66,7 @@ const addNote = () => {
     }
     else {
 
-        const reader = new FileReader
+        const reader = new FileReader;
         reader.addEventListener("load", (e) => {
             imageShow = e.target.result
             obj = {
@@ -91,7 +112,7 @@ function displayNotes() {
                 <img class="imageStyle" id="image${index}" src="${output.imageShow}">
                 <div class="d-flex justify-content-center gap-2" style="position: absolute; bottom:10px;">
                     <button class="btn btn-danger" onclick="deleteNote(${index})" style="width:100px;">Delete</button>
-                    <button class="btn btn-warning" onclick="editNote(this)" style="width:100px;">Edit</button>
+                    <button class="btn btn-warning" onclick="editNote(${index})" style="width:100px;">Edit</button>
                 </div>
             </div>`
         if (output.imageShow == "") {
@@ -112,6 +133,53 @@ function displayNotes() {
     // }
 }
 
+// Edit Note
+const editTitle = document.getElementById("newTitle")
+const editText = document.getElementById("newText")
+const editNoteParent = document.querySelector(".editNote")
+const panel = document.querySelectorAll(".blur")
+const saveChange = document.getElementById("saveChange")
+const editImg = document.getElementById("editImg")
+let i;
+const editNote = (index) => {
+    i = index
+    editNoteParent.style.display = "flex"
+    panel.forEach((e) => {
+        e.style.filter = "blur(10px)"
+    })
+    editTitle.value = allNote[index].note
+    editText.value = allNote[index].notes
+}
+
+saveChange.addEventListener("click", ()=>{
+    const file = editImg.files[0]
+    if(file == undefined){
+        allNote[i].note = editTitle.value
+        allNote[i].notes = editText.value
+        editNoteParent.style.display = "none"
+        panel.forEach((e) => {
+            e.style.filter = "blur(0px)"
+        })
+        displayNotes()
+    }
+    else{
+        const reader = new FileReader
+        reader.addEventListener("load", (e)=>{
+            const imgBase64 = e.target.result
+            allNote[i].imageShow = imgBase64
+            allNote[i].note = editTitle.value
+            allNote[i].notes = editText.value
+            editNoteParent.style.display = "none"
+            panel.forEach((e) => {
+                e.style.filter = "blur(0px)"
+            })
+            displayNotes()
+        })
+        reader.readAsDataURL(file)
+    }
+})
+
+
 // Hide & Show
 
 const title = document.getElementById("title")
@@ -126,17 +194,55 @@ document.addEventListener("click", (e) => {
             show.style.display = "block"
         })
         document.querySelector(".note").style.height = "250px"
+        document.querySelector(".note").style.marginBottom = "30px"
     }
     else {
         const allShow = document.querySelectorAll(".show")
         allShow.forEach((show) => {
             show.style.display = "none"
         })
-        document.querySelector(".note").style.height = "100px"
+        document.querySelector(".note").style.height = "150px"
     }
 })
 
 
 
+const iconClick = () => {
+    const spans = document.querySelectorAll(".span");
+    spans.forEach(span => {
+        // Toggle display between "inline" and "none"
+        if (span.style.display === "inline") {
+            span.style.display = "none";
+            span.style.color = "none";
+        } else {
+            span.style.display = "inline";
+        }
+    });
+}
+
+const showSpan = () => {
+    const icon = document.querySelectorAll(".span")
+    icon.forEach((span) => {
+        span.style.display = "inline";
+        // span.style.color = "yellow";        span.style.fontWeight = "bold";
+        // span.style.transition = "1s ease"
+
+    })
+}
+const hideSpan = () => {
+    const icon = document.querySelectorAll(".span")
+    icon.forEach((span) => {
+        span.style.display = "none";
+    })
+}
 
 
+
+const showText = () => {
+    hoverText.style.display = "block"
+}
+
+const removeText = () => {
+    hoverText.style.display = "none"
+
+}
