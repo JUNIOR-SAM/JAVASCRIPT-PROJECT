@@ -220,7 +220,7 @@ const signUp = () => {
             sub.style.display = 'block'
             toast("signup successful", "green", "white", "bold", "50px", "50px");
             setTimeout(() => {
-                window.location.href = 'Signin.html';
+                window.location.href = 'signin.html';
             }, 3000);
         }, 3000);
 
