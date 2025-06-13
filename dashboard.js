@@ -1,4 +1,4 @@
-const toast = (message, bgColor, color = "white", fontWeight = "bold", marginTop = "50px", borderRadius = "50px", width,fontSize,textAlign) => {
+const toast = (message, bgColor, color = "white", fontWeight = "bold", marginTop = "50px", borderRadius = "50px", width, fontSize, textAlign) => {
     Toastify({
         text: message,
         duration: 2000,
@@ -35,7 +35,7 @@ const addNote = () => {
         return;
     }
     else if (!/^[A-Z]/.test(note)) {
-        toast("Title must contain only capital letters (A-Z) with no spaces.",'red','white', 'bold', '50px', '50px','80%','13px','center');
+        toast("Title must contain only capital letters (A-Z) with no spaces.", 'red', 'white', 'bold', '50px', '50px', '80%', '13px', 'center');
         return;
     }
     // else if (note === "") {
@@ -151,9 +151,9 @@ const editNote = (index) => {
     editText.value = allNote[index].notes
 }
 
-saveChange.addEventListener("click", ()=>{
+saveChange.addEventListener("click", () => {
     const file = editImg.files[0]
-    if(file == undefined){
+    if (file == undefined) {
         allNote[i].note = editTitle.value
         allNote[i].notes = editText.value
         editNoteParent.style.display = "none"
@@ -162,9 +162,9 @@ saveChange.addEventListener("click", ()=>{
         })
         displayNotes()
     }
-    else{
+    else {
         const reader = new FileReader
-        reader.addEventListener("load", (e)=>{
+        reader.addEventListener("load", (e) => {
             const imgBase64 = e.target.result
             allNote[i].imageShow = imgBase64
             allNote[i].note = editTitle.value
@@ -247,3 +247,9 @@ const removeText = () => {
 
 }
 userName.innerHTML = localStorage.getItem("userName")
+
+
+const logoutBtn = () => {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'index.html';
+}
