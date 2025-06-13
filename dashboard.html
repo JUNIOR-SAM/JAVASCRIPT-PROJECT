@@ -46,9 +46,13 @@
             </div>
         </div>
 
-        <div class="d-flex    both col-lg-8 col-9">
-        <div class=" border-1 border-secondary border note rounded-4 d-flex justify-content-center flex-column align-items-center pt-2 pb-2 mb-5 "
-            id="note">
+        <div class="both col-lg-8 col-9  d-flex flex-column flex-lg-row align-items-start">
+                <div class="col-12 col-lg-2 ps-lg-5 order-1 order-lg-2 mb-3 mb-lg-0 text-sm-end pe-4 pe-lg-0">
+        <h6>Welcome, <span id="userName"></span>!</h6>
+    </div>
+        <!-- <div class=" border-1 border-secondary border note rounded-4 d-flex justify-content-center flex-column align-items-center pt-2 pb-2 mb-5 "
+            id="note"> -->
+            <div class="order-2 order-lg-1 border-1 border-secondary border note rounded-4 d-flex justify-content-center flex-column align-items-center pt-2 pb-2 mb-5 col-12 col-lg-10" id="note">
             <div class="col-10  ">
                 <input class=" sea ps-lg-4 ps-3  mt-lg-3 mt-2 col-12   " type="text" placeholder="Title" id="title">
                 <input class="show sea ps-lg-4 ps-3  mt-lg-3 mt-3 col-12" type="text" placeholder="Take a note"
@@ -63,7 +67,7 @@
             <button id="btn" class=" ms-auto me-5 btn btn-success  mt-3 " onclick="addNote()">close</button>
         </div>
 
-        <div class="col-2 "> <h6>Welcome, <span id="userName"></span>!</h6></div>
+        <!-- <div class="col-2  ps-lg-5 "> <h6>Welcome, <span id="userName"></span>!</h6></div> -->
         </div>
 
     </div>
