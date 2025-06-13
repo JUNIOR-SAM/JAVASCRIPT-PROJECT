@@ -246,3 +246,4 @@ const removeText = () => {
     hoverText.style.display = "none"
 
 }
+userName.innerHTML = localStorage.getItem("userName")

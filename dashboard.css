@@ -83,7 +83,8 @@ body {
     width: 800px;
     max-width: 65%;
     /* min-width: 100%; */
-    height: 150px;
+    height: 180px;
+
 }
 
 #show {
@@ -178,4 +179,10 @@ body {
     font-weight: 600;
     justify-self: center;
     align-self: center;
+}
+
+.both{
+    gap: 300px;
+    gap: 10%;
+    display: flex;
 }
