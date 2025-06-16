@@ -161,7 +161,7 @@ saveChange.addEventListener("click", () => {
             e.style.filter = "blur(0px)"
         })
         displayNotes()
-    }
+    } 
     else {
         const reader = new FileReader
         reader.addEventListener("load", (e) => {
@@ -169,6 +169,7 @@ saveChange.addEventListener("click", () => {
             allNote[i].imageShow = imgBase64
             allNote[i].note = editTitle.value
             allNote[i].notes = editText.value
+            localStorage.setItem("user", JSON.stringify(allNote));
             editNoteParent.style.display = "none"
             panel.forEach((e) => {
                 e.style.filter = "blur(0px)"
@@ -246,7 +247,7 @@ const removeText = () => {
     hoverText.style.display = "none"
 
 }
-userName.innerHTML = localStorage.getItem("userName")
+userName.innerHTML = localStorage.getItem("userName").toUpperCase();
 
 
 const logoutBtn = () => {

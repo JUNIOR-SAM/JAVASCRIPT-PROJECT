@@ -203,3 +203,9 @@ body {
         gap: 15%;
     }
 }
+
+#userName{
+        background: linear-gradient(135deg, #ff512f, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
