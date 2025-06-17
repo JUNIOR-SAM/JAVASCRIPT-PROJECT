@@ -20,7 +20,7 @@ body {
 }
 
 .search {
-    width: 90%;
+    width: 105%;
     height: 45px;
     background-color: rgb(82, 83, 85);
     border: none;
@@ -204,8 +204,9 @@ body {
     }
 }
 
-#userName{
-        background: linear-gradient(135deg, #ff512f, yellow);
+#userName {
+    background: linear-gradient(135deg, #ff512f, yellow);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-style: oblique;
 }
